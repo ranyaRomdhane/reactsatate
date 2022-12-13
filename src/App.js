@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import { useState } from "react";
+import CardL from "./CardL";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
+
+
 function App() {
+  const [show, setshow] = useState(false);
+const [person, setperson] = useState([
+    {
+      FullName : "Levi Ackerman",
+      Bio: "lit leader of the soldiers  of the Special Operations Squad within the Survey Corps and is widely known as humanity's strongest soldier",
+    }
+  ]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div> 
+<br/>
+
+<button className="bot" onClick={() => setshow(!show)}>
+  click here to show something</button>
+
+
+  <br/>
+  <br/>
+  <br/>
+
+
+{show?(
+  <div>
+  {person.map((el)=>< CardL el={el}/>)}
+ 
+  </div>
+):null}
+  
+      
+
+
     </div>
   );
 }
